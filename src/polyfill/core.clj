@@ -1,30 +1,18 @@
 
-(ns polyfill.core
-  (:require [cljs.reader :refer [read-string]]))
+(ns polyfill.core)
 
-(def read-string* read-string)
+(def read-string* load-string)
 
-(defn document-create-element* [tag-name]
-  (.createElement js/document tag-name))
+(defn document-create-element* [tag-name] {})
 
-(defn io-get-time* [] (.valueOf (js/Date.)))
+(defn io-get-time* [] (quot (System/currentTimeMillis) 1000))
 
-(defn raise* [x] (throw (js/Error. x)))
+(defn raise* [x] (throw (Exception. x)))
 
-(defonce ctx
- (if (and (exists? js/document) (exists? js/window))
-   (.getContext (.createElement js/document "canvas") "2d")
-   nil))
-
-(defn text-width* [content font-size font-family]
-  (if (some? ctx)
-    (do
-      (set! (.-font ctx) (str font-size "px " font-family))
-      (.-width (.measureText ctx content)))
-    nil))
+(defn text-width* [content font-size font-family] 0)
 
 (defn log* [arg]
-  (.log js/console arg))
+  (println arg))
 
 (defn set-timeout* [f]
-  (js/setTimeout f 0))
+  (println "not supported"))

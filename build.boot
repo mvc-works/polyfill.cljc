@@ -1,10 +1,10 @@
 
 (set-env!
-  :source-paths #{"src/"}
+  :resource-paths #{"src/"}
   :dependencies '[[org.clojure/clojure          "1.8.0"       :scope "test"]
                   [org.clojure/clojurescript    "1.9.293"     :scope "test"]])
 
-(def +version+ "0.1.0")
+(def +version+ "0.1.1")
 
 (task-options!
   pom {:project     'mvc-works/polyfill
