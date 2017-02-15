@@ -6,8 +6,10 @@ To be reused by `*.cljc` files.
 
 ### Usages
 
+[![Clojars Project](https://img.shields.io/clojars/v/mvc-works/polyfill.svg)](https://clojars.org/mvc-works/polyfill)
+
 ```clojure
-[mvc-works/polyfill "0.1.0"]
+[mvc-works/polyfill "0.1.1"]
 ```
 
 ```clojure
